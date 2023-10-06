@@ -1,0 +1,11 @@
+@import "../../global.scss";
+
+.posts {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 12rem;
+    gap: 0.5rem;
+  }
+}

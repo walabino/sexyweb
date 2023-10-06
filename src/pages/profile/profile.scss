@@ -1,0 +1,76 @@
+@import "../../global.scss";
+
+.profile {
+  @include themify($themes) {
+    .images {
+      width: 100%;
+      height: 200px;
+      position: relative;
+
+      .cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .profilePic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 130px;
+        left: 50px;
+        border: 2px solid white;
+      }
+    }
+    .profileContainer {
+      display: flex;
+      flex-direction: column;
+      background-color: themed("bg");
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+
+      .action {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        padding-right: 20px;
+        align-items: center;
+        justify-content: flex-end;
+        color: themed("textColor");
+        font-size: 30px;
+        gap: 20px;
+        .ic-action {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .uInfo {
+        min-height: 100px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        color: themed("textColor");
+        padding: 20px;
+
+        h2 {
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 20px;
+        }
+        h3 {
+          font-size: 16px;
+          font-weight: 300;
+          color: themed("textColorSoft");
+        }
+        p {
+          margin: 10px 0px;
+          font-size: 15px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

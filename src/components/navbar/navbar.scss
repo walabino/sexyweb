@@ -1,0 +1,91 @@
+@import "../../global.scss";
+.navbar {
+  @include themify($themes) {
+    width: 100%;
+    position: relative;
+    background-color: themed("bg");
+    color: themed("textColor");
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    nav {
+      width: 80%;
+      margin: 0 auto;
+      padding: 0.7rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 15px;
+        a {
+          text-decoration: none;
+        }
+        h2 {
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: themed("logo");
+        }
+      }
+      .middle {
+        display: flex;
+        justify-content: center;
+        .search-bar {
+          background: var(--color-light);
+          border-radius: var(--border-radius);
+          padding: var(--search-padding);
+          input[type="search"] {
+            background: transparent;
+            width: 30vw;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            color: var(--color-dark);
+            ::placeholder {
+              color: var(--color-gray);
+            }
+          }
+          @include mobile {
+            display: none;
+          }
+        }
+      }
+      .right {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+        @include mobile {
+          gap: 25px;
+        }
+        .profile-photo {
+          width: 2.7rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          overflow: hidden;
+
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+        .uname {
+          font-weight: 500;
+          @include mobile {
+            display: none;
+          }
+        }
+
+        .daIcon {
+          font-size: 1.4rem;
+          font-weight: 500;
+          cursor: pointer;
+        }
+        @include mobile {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}

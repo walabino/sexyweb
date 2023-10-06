@@ -1,0 +1,132 @@
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  .modal {
+    background-color: #fff;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      h2 {
+        font-size: 20px;
+        margin: 0;
+      }
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .modal-body {
+      textarea {
+        width: 95%;
+        margin: 0 auto;
+        height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 14px;
+        resize: none;
+      }
+      .icon-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 16px;
+
+        .file-input-label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          font-size: 14px;
+          color: #777;
+          transition: color 0.2s;
+          margin: 0;
+        }
+        .file-input {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
+      }
+
+      .icon-button {
+        background: none;
+        border: none;
+        font-size: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: hsl(252, 75%, 60%);
+
+        &:hover {
+          color: hsl(252, 75%, 20%);
+        }
+      }
+
+      .icon {
+        height: 24px;
+        width: 24px;
+        margin-right: 8px;
+      }
+      .imagen-preview {
+        img {
+          width: 90%;
+          margin: 0 auto;
+          object-fit: cover;
+        }
+      }
+      .video-preview {
+        video {
+          width: 90%;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .modal-footer {
+      margin-top: 16px;
+
+      .post-button {
+        background-color: hsl(252, 75%, 60%);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: hsl(252, 75%, 40%);
+        }
+      }
+    }
+  }
+}

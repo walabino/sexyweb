@@ -1,0 +1,6 @@
+@import "../../global.scss";
+.rightbar {
+  @include mobile {
+    display: none;
+  }
+}

@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkMode";
 import { AuthContext } from "../../context/authContext";
+import Search from "../search/Search";
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
@@ -17,11 +18,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="middle">
-          <div className="search-bar">
-            <Icon icon="uil:search" />
-
-            <input type="search" placeholder="Buscar creadores" />
-          </div>
+          <Search />
         </div>
         <div className="right">
           {darkMode ? (

@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { makeRequestAuth } from "../../api/axios";
 const Search = () => {
   const [buscar, setBuscar] = useState("");
+  const [ver, setVer] = useState(false);
   const [resultados, setResultados] = useState([]);
   const handleBuscar = async (e) => {
     try {
@@ -12,14 +13,20 @@ const Search = () => {
       setBuscar(v);
       if (v.length === 0) {
         setResultados([]);
+        setVer(false);
         return;
       } else if (v.length >= 3) {
         const response = await makeRequestAuth.post(
           "users/find/profile/" + e.target.value
         );
         const resultados = response.data;
-        console.log(resultados);
-        setResultados(resultados);
+        if (resultados.length > 0) {
+          setResultados(resultados);
+          console.log(resultados);
+          setVer(true);
+        } else {
+          setVer(false);
+        }
       }
 
       //const response = await axios.post("/buscar", { buscar: e.target.value });
@@ -36,14 +43,27 @@ const Search = () => {
   return (
     <div className="search">
       <div className="search-bar">
+        <Icon icon="uil:search" />
         <input
           type="search"
           placeholder="Buscar creadores"
           onChange={handleBuscar}
           value={buscar}
         />
-        <Icon icon="uil:search" />
       </div>
+      {ver === true && resultados && (
+        <div class="search-results">
+          {resultados.map((res) => (
+            <div className="search-result" key={res.id}>
+              <img src={res.pic} alt="" className="user-avatar" />
+              <p className="user-name">{res.name}</p>
+            </div>
+          ))}
+          <div className="search-result">
+            <button>Ver Mas</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

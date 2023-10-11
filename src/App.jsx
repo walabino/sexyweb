@@ -4,6 +4,7 @@ import {
   Route,
   Outlet,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 
 import "./global.scss";
@@ -37,6 +38,12 @@ function App() {
   }, [darkMode]);
   toggleBody();
   const Layout = () => {
+    const [key, setKey] = useState(0);
+    const location = useLocation();
+
+    useEffect(() => {
+      setKey(key + 1);
+    }, [location]);
     return (
       <QueryClientProvider client={queryClient}>
         <div
@@ -46,7 +53,7 @@ function App() {
           <Navbar />
           <div className="contenedor">
             <Leftbar />
-            <Outlet />
+            <Outlet key={key} />
             <Rightbar />
           </div>
         </div>

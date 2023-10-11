@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import "./search.scss";
 import { Icon } from "@iconify/react";
 import { makeRequestAuth } from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 const Search = () => {
+  const navigate = useNavigate();
   const [buscar, setBuscar] = useState("");
   const [ver, setVer] = useState(false);
   const [resultados, setResultados] = useState([]);
@@ -38,6 +40,12 @@ const Search = () => {
       console.error("Error al realizar la búsqueda:", error);
     }
   };
+  const handleClick = (id) => {
+    setBuscar("");
+    setVer(false);
+    const randomKey = Math.random().toString(36).substr(2, 9); // Genera una clave aleatoria
+    navigate(`/profile/${id}?random=${randomKey}`);
+  };
 
   //console.log("buscar", { buscar });
   return (
@@ -54,7 +62,11 @@ const Search = () => {
       {ver === true && resultados && (
         <div class="search-results">
           {resultados.map((res) => (
-            <div className="search-result" key={res.id}>
+            <div
+              className="search-result"
+              key={res.id}
+              onClick={() => handleClick(res.id)}
+            >
               <img src={res.pic} alt="" className="user-avatar" />
               <p className="user-name">{res.name}</p>
             </div>

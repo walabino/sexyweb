@@ -46,6 +46,11 @@ const Search = () => {
     const randomKey = Math.random().toString(36).substr(2, 9); // Genera una clave aleatoria
     navigate(`/profile/${id}?random=${randomKey}`);
   };
+  const buscarMas = () => {
+    setVer(false);
+    const randomKey = Math.random().toString(36).substr(2, 9); // Genera una clave aleatoria
+    navigate(`/search/${buscar}?random=${randomKey}`);
+  };
 
   //console.log("buscar", { buscar });
   return (
@@ -72,7 +77,7 @@ const Search = () => {
             </div>
           ))}
           <div className="search-result">
-            <button>Ver Mas</button>
+            <button onClick={() => buscarMas()}>Ver Mas</button>
           </div>
         </div>
       )}

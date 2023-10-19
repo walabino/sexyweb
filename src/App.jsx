@@ -15,12 +15,13 @@ import Navbar from "./components/navbar/Navbar.jsx";
 import Rightbar from "./components/rightbar/Rightbar.jsx";
 import Leftbar from "./components/leftbar/Leftbar.jsx";
 import Profile from "./pages/profile/Profile.jsx";
+import ResultSearch from "./components/search/ResultSearch.jsx";
 import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "./context/darkMode";
 import { AuthContext } from "./context/authContext";
-import Posts from "./components/posts/Posts";
+import Posts from "./components/posts/Posts.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Modal from "./components/modal/Modal";
+import Modal from "./components/modal/Modal.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -84,6 +85,7 @@ function App() {
           path: "/profile/:id",
           element: <Profile />,
         },
+        { path: "/search/:search", element: <ResultSearch /> },
       ],
     },
     {

@@ -44,7 +44,9 @@ const Post = ({ post }) => {
             </div>
             <div className="info">
               <Link
-                to={`/profile/${post.uId}`}
+                to={`/profile/${post.uId}?k=${Math.random()
+                  .toString(36)
+                  .substring(2, 9)}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <h3>{post.name}</h3>

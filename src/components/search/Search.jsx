@@ -43,13 +43,13 @@ const Search = () => {
   const handleClick = (id) => {
     setBuscar("");
     setVer(false);
-    const randomKey = Math.random().toString(36).substr(2, 9); // Genera una clave aleatoria
-    navigate(`/profile/${id}?random=${randomKey}`);
+    const randomKey = Math.random().toString(36).substring(2, 9); // Genera una clave aleatoria
+    navigate(`/profile/${id}?k=${randomKey}`);
   };
   const buscarMas = () => {
     setVer(false);
-    const randomKey = Math.random().toString(36).substr(2, 9); // Genera una clave aleatoria
-    navigate(`/search/${buscar}?random=${randomKey}`);
+    const randomKey = Math.random().toString(36).substring(2, 9); // Genera una clave aleatoria
+    navigate(`/search/${buscar}?k=${randomKey}`);
   };
 
   //console.log("buscar", { buscar });
